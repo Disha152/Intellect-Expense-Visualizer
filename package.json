@@ -4,10 +4,11 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"start": "NODE_ENV=production node backend/index.js",
-		"dev": "NODE_ENV=development nodemon backend/index.js",
-		"build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
-	},
+    "start": "env-cmd node backend/index.js",
+    "dev": "env-cmd -f .env.development nodemon backend/index.js",
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
+},
+
 	"type": "module",
 	"keywords": [],
 	"author": "",
@@ -39,6 +40,7 @@
 	},
 	"devDependencies": {
 		"cross-env": "^7.0.3",
-		"nodemon": "^3.1.0"
+		"env-cmd": "^10.1.0",
+		"nodemon": "^3.1.4"
 	}
 }
